@@ -4,6 +4,7 @@ import java.lang.reflect.Method;
 import org.springframework.aop.AfterReturningAdvice;
 
 public class AfterAdvice implements AfterReturningAdvice {
+    /*
     @Override
     public void afterReturning(Object returnedValue, Method method, Object[] args, Object target) throws Throwable {
         System.err.println("\n- in AfterAdvice -");
@@ -12,5 +13,10 @@ public class AfterAdvice implements AfterReturningAdvice {
         System.err.println("There are " + args.length + " arguments.");
         System.err.println("Returned Value: " + returnedValue);
         System.err.println("- in AfterAdvice -");
+    }*/
+
+    @Override
+    public void afterReturning(Object returnedValue, Method method, Object[] args, Object target) throws Throwable {
+        System.out.println(" Aslihan ");
     }
 }

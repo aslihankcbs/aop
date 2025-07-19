@@ -4,7 +4,9 @@ import java.lang.reflect.Method;
 import org.aopalliance.intercept.MethodInterceptor;
 import org.aopalliance.intercept.MethodInvocation;
 
+// MethodInterceptor -> aopalliance
 public class AroundAdvice implements MethodInterceptor {
+    /*
     @Override
     public Object invoke(MethodInvocation invocation) throws Throwable {
         System.err.println("- Before -");
@@ -17,6 +19,14 @@ public class AroundAdvice implements MethodInterceptor {
         System.err.println("Just returned from the method");
         System.err.println("Returned value: " + returnedValue);
         System.err.println("- After -");
+        return returnedValue;
+    }*/
+
+    @Override
+    public Object invoke(MethodInvocation invocation) throws Throwable {
+        System.out.println("- Aslihan -");
+        Object returnedValue = invocation.proceed(); // proceed i cağırmaya da bilirdi
+        System.out.println(" naber ");
         return returnedValue;
     }
 }
