@@ -10,8 +10,7 @@ import org.springframework.core.annotation.Order;
 @Aspect
 public class BeforeAspect {
 
-    //	@Before("execution(* *.greet(..))")
-    //
+    //@Before("execution(* *.greet(..))")
     public void callBefore(JoinPoint joinPoint) {
         try {
             System.out.println("BeforeAspect: The method " + joinPoint.getSignature().getName() + "() with argument " + Arrays.toString(joinPoint.getArgs()));

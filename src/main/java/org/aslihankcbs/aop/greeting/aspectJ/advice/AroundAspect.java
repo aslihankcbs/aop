@@ -10,13 +10,22 @@ import java.util.Arrays;
 @Aspect
 public class AroundAspect {
 
-    //	@Around("execution(* *.greet(..))")
-//	@Around("execution(* *.*(..))")
-//	@Around("execution(* *.*(..)) && !execution(* org.aslihankcbs.aop.greeting.aspectJ.conf.AspectConfig.*(..)) && !execution(* org.aslihankcbs.aop.greeting.aspectJ.conf.BeanConfig.*(..))")
-//	@Around("execution(* *.*(..)) && !execution(* org.aslihankcbs.aop.greeting.aspectJ.conf.AspectConfig.*(..))")
-//	@Around("execution(* org.aslihankcbs.aop.greeting.aspectJ.impl.Hello.greet(..))")
-//	@Around("execution(* org.aslihankcbs.aop.greeting.aspectJ.impl.Hello.greet(..)) || execution(* org.aslihankcbs.aop.greeting.aspectJ.impl.Selam.greet(..)) || execution(* org.aslihankcbs.aop.greeting.aspectJ.impl.arabic.ArabicGreeter.greet(..))")
-//	@Around("within(org.aslihankcbs.aop.greeting.aspectJ.impl.*)")
+    // bütün greet'ler metotlarına uygula.
+   // 	@Around("execution(* *.greet(..))")
+
+    //  bütün methodlara uygulanacak. Hata sebebi - AspectConfig getAroundAspect metoduna da aspect uygulamaya calıstıgı icin! Aspect henuz hazır değil
+	// @Around("execution(* *.*(..))")
+
+    // butun metotlar ama aspectconfig ve beanconfig tekiler haric
+	//@Around("execution(* *.*(..)) && !execution(* org.aslihankcbs.aop.greeting.aspectJ.conf.AspectConfig.*(..)) && !execution(* org.aslihankcbs.aop.greeting.aspectJ.conf.BeanConfig.*(..))")
+
+    //	@Around("execution(* *.*(..)) && !execution(* org.aslihankcbs.aop.greeting.aspectJ.conf.AspectConfig.*(..))")
+
+    //	@Around("execution(* org.aslihankcbs.aop.greeting.aspectJ.impl.Hello.greet(..))")
+
+    //	@Around("execution(* org.aslihankcbs.aop.greeting.aspectJ.impl.Hello.greet(..)) || execution(* org.aslihankcbs.aop.greeting.aspectJ.impl.Selam.greet(..)) || execution(* org.aslihankcbs.aop.greeting.aspectJ.impl.arabic.ArabicGreeter.greet(..))")
+
+    //	@Around("within(org.aslihankcbs.aop.greeting.aspectJ.impl.*)")
 //	@Around("within(org.aslihankcbs.aop.greeting.aspectJ.impl.*) || within(org.aslihankcbs.aop.greeting.aspectJ.impl.arabic.*)")
 //	@Around("within(org.aslihankcbs.aop.greeting.aspectJ.impl.*) || within(org.aslihankcbs.aop.greeting.aspectJ.impl.arabic.*) || within(org.aslihankcbs.aop.greeting.aspectJ.impl.farEast.*)")
 //	@Around("execution(* org.aslihankcbs.aop.greeting.aspectJ.impl.Hello.greet(..)) || execution(* org.aslihankcbs.aop.greeting.aspectJ.impl.Selam.greet(..)) && !execution(* org.aslihankcbs.aop.greeting.aspectJ.impl.arabic.ArabicGreeter.greet(..))")

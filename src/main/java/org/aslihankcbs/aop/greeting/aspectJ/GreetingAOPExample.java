@@ -1,49 +1,35 @@
 package org.aslihankcbs.aop.greeting.aspectJ;
 
-import org.aslihankcbs.aop.greeting.basic.advice.AfterAdvice;
-import org.aslihankcbs.aop.greeting.basic.advice.AroundAdvice;
-import org.aslihankcbs.aop.greeting.basic.advice.BeforeAdvice;
-import org.aslihankcbs.aop.greeting.basic.contract.Greeter;
-import org.aslihankcbs.aop.greeting.basic.impl.Selam;
-import org.springframework.aop.framework.ProxyFactory;
+import org.aslihankcbs.aop.greeting.aspectJ.advice.ex.NotGoodNameException;
 
+import org.aslihankcbs.aop.greeting.aspectJ.contract.Greeter;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
+
+@EnableAspectJAutoProxy
+@ComponentScan({ " org.aslihankcbs.aop.greeting.aspectJ.contract", " org.aslihankcbs.aop.greeting.aspectJ.impl",
+        " org.aslihankcbs.aop.greeting.aspectJ.conf" })
 public class GreetingAOPExample {
 
-    public static void main(String[] args) {
-        Greeter target = new Selam();
-//		Greeter target = new Hello();
+    public static void main(String[] args) throws NotGoodNameException {
+        ApplicationContext context = new AnnotationConfigApplicationContext(GreetingAOPExample.class);
 
-//		runTarget(target);
-        runBeforeAdvice(target);
-//		runAfterAdvice(target);
-//		runAroundAdvice(target);
-    }
+        Greeter hello = (Greeter) context.getBean("helloGreeter");
+        String greeting = hello.greet("John");
+        System.out.println(greeting);
 
-    public static void runTarget(Greeter target) {
-        target.greet();
-    }
+        Greeter selam = (Greeter) context.getBean("selamGreeter");
+        greeting = selam.greet("Aslihan");
+        System.out.println(greeting);
 
-    public static void runBeforeAdvice(Greeter target) {
-        ProxyFactory factory = new ProxyFactory();
-        factory.addAdvice(new BeforeAdvice());
-        factory.setTarget(target);
-        Greeter proxy = (Greeter) factory.getProxy();
-        proxy.greet();
-    }
+        Greeter arabic = (Greeter) context.getBean("arabicGreeter");
+        greeting = arabic.greet("Salah");
+        System.out.println(greeting);
 
-    public static void runAfterAdvice(Greeter target) {
-        ProxyFactory factory = new ProxyFactory();
-        factory.addAdvice(new AfterAdvice());
-        factory.setTarget(target);
-        Greeter proxy = (Greeter) factory.getProxy();
-        proxy.greet();
-    }
-
-    public static void runAroundAdvice(Greeter target) {
-        ProxyFactory factory = new ProxyFactory();
-        factory.addAdvice(new AroundAdvice());
-        factory.setTarget(target);
-        Greeter proxy = (Greeter) factory.getProxy();
-        proxy.greet();
+        Greeter japanesGereeter = (Greeter) context.getBean("japaneseGreeter");
+        greeting = japanesGereeter.greet("Mihox");
+        System.out.println(greeting);
     }
 }

@@ -7,7 +7,7 @@ import org.aslihankcbs.aop.greeting.aspectJ.advice.ex.NotGoodNameException;
 @Aspect
 public class AfterThrowingAspect {
 
-    //	@AfterThrowing (pointcut = "execution(* *.greet(..))", throwing="ex")
+    	@AfterThrowing (pointcut = "execution(* *.greet(..))", throwing="ex")
     public void callAfterThrowingException(NotGoodNameException ex) throws Exception{
         System.out.println("Exception is thrown. It is " + ex);
     }

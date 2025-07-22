@@ -15,7 +15,7 @@ public class GreeterAOPExample {
 		//runTarget(target);
         //runBeforeAdvice(target);
 		//runAfterAdvice(target);
-		runAroundAdvice(target);
+//		runAroundAdvice(target);
     }
 
     public static void runTarget(Greeter target) {
