@@ -9,25 +9,21 @@ public class AspectConfig {
 
     @Bean(name = "aroundAspect")
     public AroundAspect getAroundAspect() {
-        AroundAspect logAspect = new AroundAspect();
-        return logAspect;
+        return new AroundAspect();
     }
 
     @Bean(name = "beforeAspect")
     public BeforeAspect getBeforeAspect() {
-        BeforeAspect beforeAspect = new BeforeAspect();
-        return beforeAspect;
+        return new BeforeAspect();
     }
 
     @Bean(name = "afterAspect")
     public AfterAspect getAfterAspect() {
-        AfterAspect afterAspect = new AfterAspect();
-        return afterAspect;
+        return new AfterAspect();
     }
 
     @Bean(name = "afterThrowingAspect")
     public AfterThrowingAspect getAfterThrowingAspect() {
-        AfterThrowingAspect afterThrowingAspect = new AfterThrowingAspect();
-        return afterThrowingAspect;
+        return new AfterThrowingAspect();
     }
 }

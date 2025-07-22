@@ -11,25 +11,21 @@ import org.springframework.stereotype.Component;
 public class BeanConfig {
     @Bean(name = "helloGreeter")
     public Greeter getHelloGreeter() {
-        Greeter greeter = new Hello();
-        return greeter;
+        return new Hello();
     }
 
     @Bean(name = "selamGreeter")
     public Greeter getSelamGreeter() {
-        Greeter greeter = new Selam();
-        return greeter;
+        return new Selam();
     }
 
     @Bean(name = "arabicGreeter")
     public Greeter getArabicGreeter() {
-        Greeter greeter = new ArabicGreeter();
-        return greeter;
+        return new ArabicGreeter();
     }
 
     @Bean(name = "japaneseGreeter")
     public Greeter getJapaneseGreeter() {
-        Greeter greeter = new JapaneseGreeter();
-        return greeter;
+        return new JapaneseGreeter();
     }
 }
